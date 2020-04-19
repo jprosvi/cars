@@ -1,0 +1,25 @@
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "carBrand": "errorData",
+    "carModel": "Delete"
+}
+
+###
+PUT http://localhost:3000/posts/5e9bd76f494492032e6aa84a
+Content-Type: application/json
+
+{
+    "carBrand": "Kia",
+    "carModel": "Picanto"
+}
+
+###
+GET http://localhost:3000/posts
+
+###
+DELETE http://localhost:3000/posts/5e9bd13de7cb5701b32fb73e
+
+###
+GET http://localhost:3000/posts/5e9bd13de7cb5701b32fb73esdf
