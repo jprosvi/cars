@@ -1,0 +1,25 @@
+plugins {
+  id "com.moowork.node" version "1.3.1"
+}
+
+task build
+
+task myScript(type: NodeTask) {
+	script = file('./app.js')
+}
+
+//declare a task to create a zip of the app
+task zip(type: Zip) {
+	archiveFileName = "carModel.zip"
+	destinationDirectory = file("dist")
+	from ('.') {
+		include "*"
+		include "gradle/**"
+		include "mymodel/**" 
+		include "myrouter/**"
+	}
+}
+
+build.dependsOn myScript
+myScript.dependsOn zip
+zip.dependsOn npm_install
